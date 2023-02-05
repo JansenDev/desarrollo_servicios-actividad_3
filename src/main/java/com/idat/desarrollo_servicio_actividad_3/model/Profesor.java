@@ -2,21 +2,30 @@ package com.idat.desarrollo_servicio_actividad_3.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 @Table(name="profesores")
 public class Profesor implements Serializable {
+	private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int profesor_id;
-
+    
+    @Column
     private String nombre;
 
+    @Column
     private String apellidos;
 
+    @Column
     private int edad;
 
+    @Column(unique=true,nullable=false)
     private String email;
+    
+    @ManyToMany(mappedBy="profesor")
+    private Collection<Alumnos> alumnos;
 
     public Profesor(int profesor_id, String nombre, String apellidos, int edad, String email) {
         this.profesor_id = profesor_id;
