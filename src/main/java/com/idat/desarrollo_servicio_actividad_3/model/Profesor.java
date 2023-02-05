@@ -21,6 +21,8 @@ public class Profesor implements Serializable {
     @OneToOne(mappedBy = "profesor")
     private Conyuge conyuge;
 
+
+
     public Profesor(int profesor_id, String nombre, String apellidos, int edad, String email) {
         this.profesor_id = profesor_id;
         this.nombre = nombre;
