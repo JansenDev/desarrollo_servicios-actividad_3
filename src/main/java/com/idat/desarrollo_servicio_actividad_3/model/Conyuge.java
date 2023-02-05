@@ -15,6 +15,10 @@ public class Conyuge implements Serializable {
 
     private int edad;
 
+    @OneToOne
+    @JoinColumn(nullable = true, unique = true, foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (profesor_profesor_id) references profesores (profesor_id)"))
+    private Profesor profesor;
+
     public Conyuge(int conyuge_id, String nombre, String apellidos, int edad) {
         this.conyuge_id = conyuge_id;
         this.nombre = nombre;
