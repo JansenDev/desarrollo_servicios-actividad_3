@@ -11,11 +11,9 @@ import com.idat.desarrollo_servicio_actividad_3.repository.ProfesorRepository;
 
 @Service
 public class ProfesorServiceImpl implements ProfesorService{
-
 	@Autowired
 	private ProfesorRepository repository;
-	
-	
+
 	@Override
 	@Transactional
 	public void insert(Profesor profesor) {
@@ -30,20 +28,20 @@ public class ProfesorServiceImpl implements ProfesorService{
 
 	@Override
 	@Transactional
-	public void delete(Integer profesor_id) {
-		repository.deleteById(profesor_id);	
+	public void delete(Integer profesorId) {
+		repository.deleteById(profesorId);
 	}
 
 	@Override
-	@Transactional(readOnly=true)
-	public Profesor findById(Integer profesor_id) {
-		return repository.findById(profesor_id).orElse(null);
+	@Transactional(readOnly = true)
+	public Profesor findById(Integer profesorId) {
+		return repository.findById(profesorId).orElse(null);
 	}
 
 	@Override
-	@Transactional(readOnly=true)
-	public Collection<Profesor> finAll() {
-		return (Collection<Profesor>)repository.findAll();
+	@Transactional(readOnly = true)
+	public Collection<Profesor> findAll() {
+		return (Collection<Profesor>) repository.findAll();
 	}
 
 }

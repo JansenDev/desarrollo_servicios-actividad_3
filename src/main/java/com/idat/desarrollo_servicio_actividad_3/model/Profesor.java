@@ -8,10 +8,11 @@ import java.util.Collection;
 @Entity
 @Table(name="profesor")
 public class Profesor implements Serializable {
+	private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer profesor_id;
-
+    private int profesor_id;
+    
     @Column
     private String nombre;
 
@@ -34,8 +35,9 @@ public class Profesor implements Serializable {
 
     @OneToOne(mappedBy = "profesor")
     private Conyuge conyuge;
-
-
+    
+    @ManyToMany(mappedBy="profesor")
+    private Collection<Alumnos> alumnos;
 
     public Profesor(int profesor_id, String nombre, String apellidos, int edad, String email) {
         this.profesor_id = profesor_id;
